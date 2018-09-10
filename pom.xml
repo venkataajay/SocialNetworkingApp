@@ -33,6 +33,15 @@
 </dependency>
   </dependencies>
   <build>
-    <finalName>SocialNetworkApp</finalName>
+    <finalName>SocialNetworkingApp</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+                <outputDirectory>/usr/local/apache-tomcat-9.0.11/webapps</outputDirectory>
+            </configuration>
+        </plugin>
+        </plugins>
   </build>
 </project>

@@ -6,6 +6,12 @@ public class RegistrationDetails {
 	private String lastName;
 	private String emailID;
 	private String dateOfBirth;
+	private String city;
+	private String zipCode;
+	
+	
+	
+	
 	
 
 }

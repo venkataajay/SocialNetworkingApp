@@ -7,13 +7,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.interfaces.UserDao;
+import dao.jdbc.ConnectionProvider;
+import dao.jdbc.UserDaoImpl;
+
+import java.beans.Statement;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 
 
 
 
-@WebServlet("/login")
+
 public class Login extends HttpServlet {
 
 
@@ -26,27 +36,37 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       
-        final String email = request.getParameter("email");
-        final String password = request.getParameter("password");
-
-        //Validate input parameters
-     
-
-        //Check if login is correct
-      
-
+    	final String emailid = request.getParameter("emailid");
+        final String Password = request.getParameter("password");
+          UserDaoImpl impl = new UserDaoImpl();
+          impl.authenticateUser(emailid, Password);
+          PrintWriter out=response.getWriter();
+          response.setContentType("text/html");
+        
+          if(true)
+          {
+        	  response.sendRedirect("/home.jsp");
+          }
+          else
+          {
+        	  out.println("invalid details");
+        	  request.getRequestDispatcher("/login.jsp").forward(request, response);
+          }
     }
+}
 
-    @Override
+  /*  @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+        
+        
     }
+       
 
     private void showError(String errorMessage, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         request.setAttribute("errorMessage", errorMessage);
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        
     }
 
-}
+}*/

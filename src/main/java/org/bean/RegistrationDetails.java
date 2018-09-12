@@ -1,4 +1,4 @@
-package beans;
+package org.bean;
 
 public class RegistrationDetails {
 	

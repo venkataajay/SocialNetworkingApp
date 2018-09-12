@@ -1,6 +1,7 @@
 package dao.interfaces;
 
-import beans.RegistrationDetails;
+import org.bean.RegistrationDetails;
+
 
 public interface UserDao {
 	

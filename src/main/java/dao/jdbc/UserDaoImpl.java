@@ -1,11 +1,13 @@
 package dao.jdbc;
 
 import java.sql.Statement;
+
+import org.bean.RegistrationDetails;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import beans.RegistrationDetails;
 import dao.interfaces.UserDao;
 
 public class UserDaoImpl implements UserDao {
